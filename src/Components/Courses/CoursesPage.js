@@ -1,10 +1,11 @@
 import React, { PropTypes } from "react";
+import { connect } from "redux";
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      course: { title: null }
+      course: { title: null },
     };
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
@@ -36,4 +37,4 @@ class CoursesPage extends React.Component {
   }
 }
 
-export default CoursesPage;
+export default connect()(Course);
