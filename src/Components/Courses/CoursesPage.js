@@ -1,12 +1,12 @@
 import React, { PropTypes } from "react";
-import { connect } from "redux";
+import { connect } from "react-redux";
 import * as courseActions from "../../Actions/courseActions";
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      course: { title: null },
+      course: { title: null }
     };
     this.courseRow = this.courseRow.bind(this);
     this.onTitleChange = this.onTitleChange.bind(this);
@@ -44,10 +44,15 @@ class CoursesPage extends React.Component {
   }
 }
 
+CoursesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired
+};
+
 function mapStateToProps(state, ownProps) {
   return {
-    courses: state.courses,
+    courses: state.courses
   };
 }
 
-export default connect(mapStateToProps)(Course);
+export default connect(mapStateToProps)(CoursesPage);
